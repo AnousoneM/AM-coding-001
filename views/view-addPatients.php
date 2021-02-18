@@ -33,7 +33,7 @@ require_once '../controllers/controller-addPatients.php';
 
                 <div class="text-left">
                     <label class="label" for="firstname">Prénom</label>
-                    <span class="error">Mauvais format</span>
+                    <span class="error">Mauvais format ou pas</span>
                 </div>
                 <div class="input-group input-group-sm mb-3">
                     <input id="firstname" name="firstname" type="text" class="form-control" placeholder="ex. John">
