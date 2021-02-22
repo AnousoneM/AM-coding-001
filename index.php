@@ -20,7 +20,7 @@ require_once 'controllers/controller-index.php';
             <p class="h1 text-danger text-center">LH HOSPITAL</p>
             <p class="h2 text-center mt-3">Patients</p>
             <a class="btn btn-outline-primary fw-bold shadow w-50 m-2" href="views/view-addPatients.php"><i class="fas fa-user-plus"></i> AJOUTER PATIENTS</a>
-            <a class="btn btn-outline-info fw-bold shadow w-50 m-2"><i class="far fa-address-book"></i> AFFICHER PATIENTS</a>
+            <a class="btn btn-outline-info fw-bold shadow w-50 m-2" href="views/view-listPatients.php"><i class="far fa-address-book"></i> AFFICHER PATIENTS</a>
             <p class="h2 text-center mt-3">Agenda</p>
             <a class="btn btn-outline-dark fw-bold shadow w-50 m-2">AJOUTER RDV</a>
             <a class="btn btn-outline-secondary fw-bold shadow w-50 m-2">AFFICHER RDV</a>

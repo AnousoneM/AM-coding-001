@@ -31,4 +31,21 @@ class Patients extends Database
             return false;
         }
     }
+
+    /**
+     * Méthode permettant d'obtenir la liste de tous les patients
+     *
+     * @return array
+     */
+    public function getAllPatients()
+    {
+        // Nous stockons ici notre requête pour permettre d'obtenir tous nos patients
+        $query = 'SELECT `id`, `lastname`, `firstname` FROM `patients`';
+
+        // Nous executons notre requête à l'aide de la méthode query
+        $getAllPatientsQuery = $this->dataBase->query($query);
+
+        // j'effectue la methode fetchAll pour obtenir le resultat sous forme de tableau
+        return $getAllPatientsQuery->fetchAll();
+    }
 }

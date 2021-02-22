@@ -19,61 +19,14 @@ require_once '../controllers/controller-addPatients.php';
 
    <div class="row">
 
-      <div class="container border border-secondary shadow p-4 col-4">
+      <div class="container border border-secondary shadow mt-5 p-4 col-4">
 
-         <!-- exemple de message  -->
-         <p class="h6 text-info"><?= $messages['addPatient'] ?? '' ?></p>
+         <p class="h1 text-center mb-5"><i class="fas fa-hospital-user p-2"></i>Enregistrement du patient</p>
 
-         <!-- Utilisation du novalidate pour tester les tests en back -->
-         <form novalidate action="" method="POST">
-            <!-- Nom -->
-            <div class="text-left">
-               <label class="label" for="lastname">Nom</label>
-               <span class="error"><?= $errors['lastname'] ?? '' ?></span>
-            </div>
-            <div class="input-group input-group-sm mb-3">
-               <input id="lastname" name="lastname" type="text" class="form-control" placeholder="ex. DOE" value="<?= isset($_POST['lastname']) ? htmlspecialchars($_POST['lastname']) : '' ?>" required>
-            </div>
+         <p class="h4 text-center text-info"><?= $messages['addPatient'] ?? '' ?></p>
 
-            <!-- Prénom -->
-            <div class="text-left">
-               <label class="label" for="firstname">Prénom</label>
-               <span class="error"></span>
-            </div>
-            <div class="input-group input-group-sm mb-3">
-               <input id="firstname" name="firstname" type="text" class="form-control" placeholder="ex. John" required>
-            </div>
-
-            <!-- Date de naissance  -->
-            <div class="text-left">
-               <label class="label" for="birthdate">Date de naissance</label>
-               <span class="error"></span>
-            </div>
-            <div class="input-group input-group-sm mb-3">
-               <input id="birthdate" name="birthdate" type="date" class="form-control">
-            </div>
-
-            <!-- Numéro de téléphone -->
-            <div class="text-left">
-               <label class="label" for="phone">Numéro de téléphone</label>
-               <span class="error"></span>
-            </div>
-            <div class="input-group input-group-sm mb-3">
-               <input id="phone" name="phone" type="text" class="form-control" placeholder="ex. 0612XXXXXX" required>
-            </div>
-
-            <!-- Adresse mail -->
-            <div class="text-left">
-               <label class="label" for="mail">Adresse mail</label>
-               <span class="error"><?= $errors['mail'] ?? '' ?></span>
-            </div>
-            <div class="input-group input-group-sm mb-3">
-               <input id="mail" name="mail" type="mail" class="form-control" placeholder="ex. mail@mail.fr" required>
-            </div>
-
-            <button type="submit" class="btn btn-outline-primary" name="addPatientBtn">+ Enregistrer</button>
-
-         </form>
+         <!-- Mise en place d'un include pour la mise en place du formulaire -->
+         <?php include 'include/form-addPatients.php' ?>
 
       </div>
 
