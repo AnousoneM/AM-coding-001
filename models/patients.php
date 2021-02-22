@@ -49,7 +49,12 @@ class Patients extends Database
         return $getAllPatientsQuery->fetchAll();
     }
 
-
+    /**
+     * Methode permettant d'obtenir les infos d'un client selon son ID
+     *
+     * @param int $idPatient
+     * @return array ou false si la requête ne passe pas
+     */
     public function getDetailsPatient($idPatient)
     {
 
@@ -65,7 +70,7 @@ class Patients extends Database
         // test et execution de la requête pour afficher message erreur
         if ($getDetailsPatientQuery->execute()) {
             // je retourne le resultat sous forme de tableau via la methode fetch car une seule ligne comme résultat
-            return $getDetailsPatientQuery->fetch() ;
+            return $getDetailsPatientQuery->fetch();
         } else {
             return false;
         }

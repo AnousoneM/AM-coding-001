@@ -3,7 +3,7 @@
                  <label class="label" for="lastname">Nom</label>
              </div>
              <div class="input-group input-group-sm mb-3">
-                 <input id="lastname" name="lastname" type="text" class="form-control" placeholder="ex. DOE" value="<?= $detailsPatientArray['lastname'] ?>" disabled >
+                 <input id="lastname" name="lastname" type="text" class="form-control" placeholder="ex. DOE" value="<?= $detailsPatientArray['lastname'] ?>" disabled>
              </div>
 
              <!-- Prénom -->
@@ -19,7 +19,7 @@
                  <label class="label" for="birthdate">Date de naissance</label>
              </div>
              <div class="input-group input-group-sm mb-3">
-                 <input id="birthdate" name="birthdate" type="date" class="form-control" value="<?= $detailsPatientArray['birthdate'] ?>"disabled>
+                 <input id="birthdate" name="birthdate" type="date" class="form-control" value="<?= $detailsPatientArray['birthdate'] ?>" disabled>
              </div>
 
              <!-- Numéro de téléphone -->
@@ -27,7 +27,7 @@
                  <label class="label" for="phone">Numéro de téléphone</label>
              </div>
              <div class="input-group input-group-sm mb-3">
-                 <input id="phone" name="phone" type="text" class="form-control" value="<?= $detailsPatientArray['phone'] ?>"disabled>
+                 <input id="phone" name="phone" type="text" class="form-control" value="<?= $detailsPatientArray['phone'] ?>" disabled>
              </div>
 
              <!-- Adresse mail -->
@@ -37,5 +37,6 @@
              <div class="input-group input-group-sm mb-3">
                  <input id="mail" name="mail" type="mail" class="form-control" value="<?= $detailsPatientArray['mail'] ?>" disabled>
              </div>
-
-             <a type="button" class="btn btn-outline-secondary" name="modifyPatientBtn">Modifier</a>
+             <form action="view-modifyPatients.php" method="POST">
+                 <button type="submit" class="btn btn-outline-secondary" name="modifyPatientBtn" value="<?= $detailsPatientArray['id'] ?>">Modifier</a>
+             </form>
