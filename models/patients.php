@@ -48,4 +48,26 @@ class Patients extends Database
         // j'effectue la methode fetchAll pour obtenir le resultat sous forme de tableau
         return $getAllPatientsQuery->fetchAll();
     }
+
+
+    public function getDetailsPatient($idPatient)
+    {
+
+        // requete me permettant de recup infos user
+        $query = 'SELECT * FROM patients WHERE id = :idPatient';
+
+        // je prepare requête à l'aide de la methode prepare pour me premunir des injections SQL 
+        $getDetailsPatientQuery = $this->dataBase->prepare($query);
+
+        // Je bind ma value idPatient à mon paramètre $idPatient
+        $getDetailsPatientQuery->bindValue(':idPatient', $idPatient, PDO::PARAM_STR);
+
+        // test et execution de la requête pour afficher message erreur
+        if ($getDetailsPatientQuery->execute()) {
+            // je retourne le resultat sous forme de tableau via la methode fetch car une seule ligne comme résultat
+            return $getDetailsPatientQuery->fetch() ;
+        } else {
+            return false;
+        }
+    }
 }

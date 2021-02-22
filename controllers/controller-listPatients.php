@@ -7,4 +7,3 @@ require_once '../models/patients.php';
 $patientsObj = new Patients;
 $allPatientsArray = $patientsObj->getAllPatients();
 
-var_dump(count($allPatientsArray));

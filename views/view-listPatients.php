@@ -23,32 +23,34 @@ require_once '../controllers/controller-listPatients.php';
 
          <p class="h1 text-center mb-5"><i class="fas fa-hospital-user p-2"></i>Liste des patients</p>
 
-         <table class="table table-sm table table-hover">
-            <thead>
-               <tr>
-                  <th>#</th>
-                  <th>Nom</th>
-                  <th>Prénom</th>
-                  <th></th>
-               </tr>
-            </thead>
-            <tbody>
-
-               <?php foreach ($allPatientsArray as $patient) { ?>
+         <form action="view-detailsPatient" method="GET">
+            <table class="table table-sm table table-hover">
+               <thead>
                   <tr>
-                     <td><?= $patient['id'] ?></td>
-                     <td><?= $patient['lastname'] ?></td>
-                     <td><?= $patient['firstname'] ?></td>
-                     <td class="text-right">
-                        <button type="button" class="btn btn-outline-dark btn-sm">+ infos</button>
-                        <button type="button" class="btn btn-danger btn-sm"><i class="far fa-trash-alt"></i></button>
-                     </td>
+                     <th>#</th>
+                     <th>Nom</th>
+                     <th>Prénom</th>
+                     <th></th>
                   </tr>
-               <?php } ?>
+               </thead>
+               <tbody>
 
-            </tbody>
-         </table>
-         
+                  <?php foreach ($allPatientsArray as $patient) { ?>
+                     <tr>
+                        <td><?= $patient['id'] ?></td>
+                        <td><?= $patient['lastname'] ?></td>
+                        <td><?= $patient['firstname'] ?></td>
+                        <td class="text-right">
+                           <button type="submit" class="btn btn-outline-dark btn-sm" name="idPatient" value="<?= $patient['id'] ?>">+ infos</button>
+                           <button type="button" class="btn btn-danger btn-sm"><i class="far fa-trash-alt"></i></button>
+                        </td>
+                     </tr>
+                  <?php } ?>
+
+               </tbody>
+            </table>
+         </form>
+
          <!-- Mise en place d'une ternaire pour permettre d'afficher un message si jamais le tableau est vide -->
          <?= count($allPatientsArray) == 0 ? '<p class="h6 text-center">Vous n\'avez pas de patients d\'enregistrés<p>' : '' ?>
 
