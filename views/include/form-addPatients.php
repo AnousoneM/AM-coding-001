@@ -45,6 +45,7 @@
                  <input id="mail" name="mail" type="mail" class="form-control" placeholder="ex. mail@mail.fr" required>
              </div>
 
-             <button type="submit" class="btn btn-outline-primary" name="addPatientBtn">+ Enregistrer</button>
+             <button type="submit" class="btn btn-sm btn-primary" name="addPatientBtn">Enregistrer</button>
+             <a type="button" href="view-listPatients.php" class="btn btn-sm btn-outline-primary" name="addPatientBtn">Liste des patients</a>
 
          </form>

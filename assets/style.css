@@ -9,3 +9,7 @@ span.error {
     font-size: 0.8rem;
     font-weight: bold;
 }
+
+i.logo {
+    font-size: 4rem;
+}

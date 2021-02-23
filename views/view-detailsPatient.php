@@ -19,21 +19,23 @@ require_once '../controllers/controller-detailsPatient.php';
 
    <div class="row">
 
-      <div class="container border border-secondary shadow mt-5 p-4 col-4">
+      <div class="container border border-secondary shadow mt-5 p-4 col-6">
 
-         <p class="h1 text-center mb-5"><i class="fas fa-hospital-user p-2"></i>Détails du patient</p>
+         <div class="text-center"><i class="fas fa-info-circle p-2 logo"></i></div>
+         <p class="text-center text-uppercase mb-3 h3">Détails du patient</p>
+
+         <hr>
 
          <?php
          if ($detailsPatientArray) {
-
             include 'include/details-patient.php';
-
-         } else {
-
-            echo '<p class="h3 text-info text-center mb-5"></i>Patient non présent</p>';
-
-         }
-         ?>
+         } else { ?>
+            <p class="h3 text-info text-center mb-3"></i>Patient non présent</p>
+            <div class="text-center">
+               <a type="button" href="view-listPatients.php" class="btn btn-sm btn-outline-secondary">Liste des patients</a>
+            </div>
+         <?php
+         } ?>
 
       </div>
 

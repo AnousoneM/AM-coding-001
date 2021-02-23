@@ -16,7 +16,10 @@ $errors = [];
 // mise en place d'un tableau de messages
 $messages = [];
 
-if($_POST['modifyPatientBtn']){
+// Nous testons si nous avons bien une valeur non NULL dans le $_POST ModifyPatient
+if (!empty($_POST['modifyPatient'])) {
+    // Création d'un nouvel objet
     $patientsObj = new Patients;
-    $detailsPatientArray = $patientsObj->getDetailsPatient($_POST['modifyPatientBtn']);
+    // Nous allons récupérer les informations de notre patient nous permettant de pré-remplir le formulaire
+    $detailsPatientArray = $patientsObj->getDetailsPatient($_POST['modifyPatient']);
 }

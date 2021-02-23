@@ -15,18 +15,36 @@ require_once '../controllers/controller-addPatients.php';
    <script src="https://kit.fontawesome.com/3437dc2c72.js" crossorigin="anonymous"></script>
 </head>
 
-<body class="bg-light">
+<body>
 
    <div class="row">
 
-      <div class="container border border-secondary shadow mt-5 p-4 col-4">
+      <div class="container border border-secondary shadow mt-5 p-4 col-6">
 
-         <p class="h1 text-center mb-5"><i class="fas fa-hospital-user p-2"></i>Enregistrement du patient</p>
+         <div class="text-center text-primary"><i class="fas fa-hospital-user p-2 logo"></i></div>         
+         <p class="text-center text-primary text-uppercase h3 mb-3">Enregistrement du patient</p>
 
-         <p class="h4 text-center text-info"><?= $messages['addPatient'] ?? '' ?></p>
+         <hr>
 
-         <!-- Mise en place d'un include pour la mise en place du formulaire -->
-         <?php include 'include/form-addPatients.php' ?>
+         <?php
+         // Mise en place d'une condition pour ne plus afficher le formulaire quand la patient a bien été enregistré
+         if (!$addPatientInBase) { ?>
+
+            <p class="h4 text-center text-info"><?= $messages['addPatient'] ?? '' ?></p>
+
+         <?php
+            // Mise en place d'un include pour la mise en place du formulaire
+            include 'include/form-addPatients.php';
+         } else { ?>
+
+            <p class="h4 text-center text-info"><?= $messages['addPatient'] ?? '' ?></p>
+            <div class="text-center mt-4">
+               <a type="button" href="view-addPatients.php" class="btn btn-sm btn-primary" name="addPatientBtn">Ajouter un patient</a>
+               <a type="button" href="view-listPatients.php" class="btn btn-sm btn-outline-primary" name="addPatientBtn">Liste des patients</a>
+            </div>
+
+         <?php
+         } ?>
 
       </div>
 

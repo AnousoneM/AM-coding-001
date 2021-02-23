@@ -19,28 +19,29 @@ require_once '../controllers/controller-listPatients.php';
 
    <div class="row">
 
-      <div class="container border border-secondary shadow mt-5 p-4 col-4">
+      <div class="container border border-secondary shadow mt-5 p-4 col-6">
 
-         <p class="h1 text-center mb-5"><i class="fas fa-hospital-user p-2"></i>Liste des patients</p>
+         <div class="text-center text-secondary"><i class="fas fa-users p-2 logo"></i></div>
+         <p class="text-center text-secondary text-uppercase mb-3 h3">Liste des patients</p>
 
-         <form action="view-detailsPatient" method="GET">
+         <form action="view-detailsPatient.php" method="GET">
             <table class="table table-sm table table-hover">
                <thead>
-                  <tr>
-                     <th>#</th>
-                     <th>Nom</th>
-                     <th>Prénom</th>
-                     <th></th>
+                  <tr class="table-secondary">
+                     <th class="align-middle">N°</th>
+                     <th class="align-middle">Nom</th>
+                     <th class="align-middle">Prénom</th>
+                     <th class="align-middle"></th>
                   </tr>
                </thead>
                <tbody>
 
                   <?php foreach ($allPatientsArray as $patient) { ?>
                      <tr>
-                        <td><?= $patient['id'] ?></td>
-                        <td><?= $patient['lastname'] ?></td>
-                        <td><?= $patient['firstname'] ?></td>
-                        <td class="text-right">
+                        <td class="align-middle"><?= $patient['id'] ?></td>
+                        <td class="align-middle"><?= $patient['lastname'] ?></td>
+                        <td class="align-middle"><?= $patient['firstname'] ?></td>
+                        <td class="align-middle text-center">
                            <button type="submit" class="btn btn-outline-dark btn-sm" name="idPatient" value="<?= $patient['id'] ?>">+ infos</button>
                            <button type="button" class="btn btn-danger btn-sm"><i class="far fa-trash-alt"></i></button>
                         </td>
@@ -53,6 +54,10 @@ require_once '../controllers/controller-listPatients.php';
 
          <!-- Mise en place d'une ternaire pour permettre d'afficher un message si jamais le tableau est vide -->
          <?= count($allPatientsArray) == 0 ? '<p class="h6 text-center">Vous n\'avez pas de patients d\'enregistrés<p>' : '' ?>
+
+         <div class="text-center mt-4">
+            <a type="button" href="view-addPatients.php" class="btn btn-sm btn-outline-secondary">Ajouter un patient</a>
+         </div>
 
       </div>
 

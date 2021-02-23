@@ -40,7 +40,7 @@ class Patients extends Database
     public function getAllPatients()
     {
         // Nous stockons ici notre requête pour permettre d'obtenir tous nos patients
-        $query = 'SELECT `id`, `lastname`, `firstname` FROM `patients`';
+        $query = 'SELECT `id`, `lastname`, `firstname` FROM `patients` ORDER BY `id` DESC';
 
         // Nous executons notre requête à l'aide de la méthode query
         $getAllPatientsQuery = $this->dataBase->query($query);
@@ -52,10 +52,10 @@ class Patients extends Database
     /**
      * Methode permettant d'obtenir les infos d'un client selon son ID
      *
-     * @param int $idPatient
+     * @param string $idPatient
      * @return array ou false si la requête ne passe pas
      */
-    public function getDetailsPatient($idPatient)
+    public function getDetailsPatient(string $idPatient)
     {
 
         // requete me permettant de recup infos user

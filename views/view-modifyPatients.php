@@ -19,14 +19,28 @@ require_once '../controllers/controller-modifyPatients.php';
 
    <div class="row">
 
-      <div class="container border border-secondary shadow mt-5 p-4 col-4">
+      <div class="container border border-secondary shadow mt-5 p-4 col-6">
 
-         <p class="h1 text-center mb-5"><i class="fas fa-hospital-user p-2"></i>Enregistrement du patient</p>
+         <div class="text-center text-success"><i class="fas fa-user-edit p-2 logo"></i></div>
+         <p class="text-center text-success text-uppercase mb-3 h3">Modification des données</p>
+
+         <hr>
 
          <p class="h4 text-center text-info"><?= $messages['addPatient'] ?? '' ?></p>
 
-         <!-- Mise en place d'un include pour la mise en place du formulaire -->
-         <?php include 'include/form-modifyPatients.php' ?>
+         <!-- Mise en place d'un include pour la mise en place du formulaire contenant les infos
+         Nous testons si nous arrivons sur la page sans la valeur d'un $_POST['modifyPatient'] -->
+         <?php
+         if (!empty($_POST['modifyPatient'])) {
+            include 'include/form-modifyPatients.php';
+         } else { ?>
+            <p class="h4 text-center text-info">Veuillez selectionner un patient</p>
+            <div class="text-center mt-4">
+               <a type="button" href="view-listPatients.php" class="btn btn-sm btn-outline-secondary">Liste des patients</a>
+            </div>
+         <?php
+         }
+         ?>
 
       </div>
 

@@ -45,6 +45,7 @@
                  <input id="mail" name="mail" type="mail" class="form-control" placeholder="ex. mail@mail.fr" value="<?= $detailsPatientArray['mail'] ?>" required>
              </div>
 
-             <button type="submit" class="btn btn-outline-primary" name="ModifyBtn" value="<?= $detailsPatientArray['id'] ?>">Modifier</button>
+             <button type="submit" class="btn btn-sm btn-success" name="ModifyBtn" value="<?= $detailsPatientArray['id'] ?>">Enregistrer</button>
+            <a type="button" href="view-listPatients.php" class="btn btn-sm btn-outline-danger" name="addPatientBtn">Annuler</a>
 
          </form>

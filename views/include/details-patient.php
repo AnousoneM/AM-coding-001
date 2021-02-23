@@ -38,5 +38,6 @@
                  <input id="mail" name="mail" type="mail" class="form-control" value="<?= $detailsPatientArray['mail'] ?>" disabled>
              </div>
              <form action="view-modifyPatients.php" method="POST">
-                 <button type="submit" class="btn btn-outline-secondary" name="modifyPatientBtn" value="<?= $detailsPatientArray['id'] ?>">Modifier</a>
+                 <button type="submit" class="btn btn-sm btn-dark" name="modifyPatient" value="<?= $detailsPatientArray['id'] ?>">Modifier</button>
+                 <a type="button" href="view-listPatients.php" class="btn btn-sm btn-outline-dark" name="addPatientBtn">Liste des patients</a>
              </form>
