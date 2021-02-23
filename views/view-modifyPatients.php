@@ -32,7 +32,9 @@ require_once '../controllers/controller-modifyPatients.php';
          // Nous allons afficher le formulaire : 
          //    si modifyPatient n'est pas vide = nous venons bien de la page detailPatient
          //    si le tableau d'erreurs n'est pas vide = le formulaire contient des erreurs
-         if (!empty($_POST['modifyPatient']) || !empty($errors)) {
+         if (!empty($_POST['modifyPatient']) || !empty($errors)) { ?>
+            <p class="h5 text-center text-danger"><?= $messages['updatePatient'] ?? '' ?></p>
+         <?php
             include 'include/form-modifyPatients.php';
             // si la requête d'update passe, nous l'indiquons à l'utilisateur via un message
          } else if ($updatePatientInBase) { ?>

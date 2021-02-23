@@ -75,4 +75,34 @@ class Patients extends Database
             return false;
         }
     }
+
+
+    public function updatePatient(array $patientDetails)
+    {
+        // requete me permettant de modifier mon user
+        $query = 'UPDATE `patients` SET
+        `lastname` = :lastname,
+        `firstname` = :firstname,
+        `birthdate` = :birthdate,
+        `phone` = :phone,
+        `mail` = :mail
+        WHERE id = :id';
+
+        // je prepare requête à l'aide de la methode prepare pour me premunir des injections SQL 
+        $updatePatientQuery = $this->dataBase->prepare($query);
+
+        // On bind les values pour renseigner les marqueurs nominatifs
+        $updatePatientQuery->bindValue(':lastname', $patientDetails['lastname'], PDO::PARAM_STR);
+        $updatePatientQuery->bindValue(':firstname', $patientDetails['firstname'], PDO::PARAM_STR);
+        $updatePatientQuery->bindValue(':birthdate', $patientDetails['birthdate'], PDO::PARAM_STR);
+        $updatePatientQuery->bindValue(':phone', $patientDetails['phone'], PDO::PARAM_STR);
+        $updatePatientQuery->bindValue(':mail', $patientDetails['mail'], PDO::PARAM_STR);
+        $updatePatientQuery->bindValue(':id', $patientDetails['id'], PDO::PARAM_STR);
+
+        if ($updatePatientQuery->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
