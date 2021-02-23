@@ -6,7 +6,7 @@
                  <span class="error"><?= $errors['lastname'] ?? '' ?></span>
              </div>
              <div class="input-group input-group-sm mb-3">
-                 <input id="lastname" name="lastname" type="text" class="form-control" placeholder="ex. DOE" value="<?= $detailsPatientArray['lastname'] ?>" required>
+                 <input id="lastname" name="lastname" type="text" class="form-control" placeholder="ex. DOE" value="<?= $detailsPatientArray['lastname'] ?? (isset($_POST['lastname']) ? htmlspecialchars($_POST['lastname']) : '' ) ?>" required>
              </div>
 
              <!-- Prénom -->
@@ -15,7 +15,7 @@
                  <span class="error"></span>
              </div>
              <div class="input-group input-group-sm mb-3">
-                 <input id="firstname" name="firstname" type="text" class="form-control" placeholder="ex. John" value="<?= $detailsPatientArray['firstname'] ?>" required>
+                 <input id="firstname" name="firstname" type="text" class="form-control" placeholder="ex. John" value="<?= $detailsPatientArray['firstname'] ?? (isset($_POST['firstname']) ? htmlspecialchars($_POST['firstname']) : '' ) ?>" required>
              </div>
 
              <!-- Date de naissance  -->
@@ -24,7 +24,7 @@
                  <span class="error"></span>
              </div>
              <div class="input-group input-group-sm mb-3">
-                 <input id="birthdate" name="birthdate" type="date" class="form-control" value="<?= $detailsPatientArray['birthdate'] ?>" required>
+                 <input id="birthdate" name="birthdate" type="date" class="form-control" value="<?= $detailsPatientArray['birthdate'] ?? (isset($_POST['birthdate']) ? htmlspecialchars($_POST['birthdate']) : '' ) ?>" required>
              </div>
 
              <!-- Numéro de téléphone -->
@@ -33,7 +33,7 @@
                  <span class="error"></span>
              </div>
              <div class="input-group input-group-sm mb-3">
-                 <input id="phone" name="phone" type="text" class="form-control" placeholder="ex. 0612XXXXXX" value="<?= $detailsPatientArray['phone'] ?>" required>
+                 <input id="phone" name="phone" type="text" class="form-control" placeholder="ex. 0612XXXXXX" value="<?= $detailsPatientArray['phone'] ?? (isset($_POST['phone']) ? htmlspecialchars($_POST['phone']) : '' ) ?>" required>
              </div>
 
              <!-- Adresse mail -->
@@ -42,10 +42,10 @@
                  <span class="error"><?= $errors['mail'] ?? '' ?></span>
              </div>
              <div class="input-group input-group-sm mb-3">
-                 <input id="mail" name="mail" type="mail" class="form-control" placeholder="ex. mail@mail.fr" value="<?= $detailsPatientArray['mail'] ?>" required>
+                 <input id="mail" name="mail" type="mail" class="form-control" placeholder="ex. mail@mail.fr" value="<?= $detailsPatientArray['mail'] ?? (isset($_POST['mail']) ? htmlspecialchars($_POST['mail']) : '' ) ?>" required>
              </div>
 
-             <button type="submit" class="btn btn-sm btn-success" name="ModifyBtn" value="<?= $detailsPatientArray['id'] ?>">Enregistrer</button>
+             <button type="submit" class="btn btn-sm btn-success" name="updatePatientBtn">Enregistrer</button>
             <a type="button" href="view-listPatients.php" class="btn btn-sm btn-outline-danger" name="addPatientBtn">Annuler</a>
 
          </form>

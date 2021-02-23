@@ -28,19 +28,27 @@ require_once '../controllers/controller-modifyPatients.php';
 
          <p class="h4 text-center text-info"><?= $messages['addPatient'] ?? '' ?></p>
 
-         <!-- Mise en place d'un include pour la mise en place du formulaire contenant les infos
-         Nous testons si nous arrivons sur la page sans la valeur d'un $_POST['modifyPatient'] -->
          <?php
-         if (!empty($_POST['modifyPatient'])) {
+         // Nous allons afficher le formulaire : 
+         //    si modifyPatient n'est pas vide = nous venons bien de la page detailPatient
+         //    si le tableau d'erreurs n'est pas vide = le formulaire contient des erreurs
+         if (!empty($_POST['modifyPatient']) || !empty($errors)) {
             include 'include/form-modifyPatients.php';
-         } else { ?>
-            <p class="h4 text-center text-info">Veuillez selectionner un patient</p>
+            // si la requête d'update passe, nous l'indiquons à l'utilisateur via un message
+         } else if ($updatePatientInBase) { ?>
+            <p class="h5 text-center text-info">Les modifications ont bien été prises en compte</p>
             <div class="text-center mt-4">
                <a type="button" href="view-listPatients.php" class="btn btn-sm btn-outline-secondary">Liste des patients</a>
             </div>
          <?php
-         }
-         ?>
+            // si aucune condition n'est remplie, cela nous indique que l'utilisateur a directement saisi l'URL, nous lui indiquons via un message
+         } else { ?>
+            <p class="h5 text-center text-info">Veuillez selectionner un patient</p>
+            <div class="text-center mt-4">
+               <a type="button" href="view-listPatients.php" class="btn btn-sm btn-outline-secondary">Liste des patients</a>
+            </div>
+         <?php
+         } ?>
 
       </div>
 

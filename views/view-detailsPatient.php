@@ -27,10 +27,12 @@ require_once '../controllers/controller-detailsPatient.php';
          <hr>
 
          <?php
+         // Nous testons si nous arrivons à obtenir les détails du client sous forme d'un tableau
          if ($detailsPatientArray) {
             include 'include/details-patient.php';
+            // si KO, nous indiquons à l'utilisateur que le patient n'est pas présent
          } else { ?>
-            <p class="h3 text-info text-center mb-3"></i>Patient non présent</p>
+            <p class="h5 text-danger text-center mb-3"></i>Patient non présent</p>
             <div class="text-center">
                <a type="button" href="view-listPatients.php" class="btn btn-sm btn-outline-secondary">Liste des patients</a>
             </div>

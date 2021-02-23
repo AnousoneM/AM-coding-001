@@ -21,7 +21,7 @@ require_once '../controllers/controller-addPatients.php';
 
       <div class="container border border-secondary shadow mt-5 p-4 col-6">
 
-         <div class="text-center text-primary"><i class="fas fa-hospital-user p-2 logo"></i></div>         
+         <div class="text-center text-primary"><i class="fas fa-hospital-user p-2 logo"></i></div>
          <p class="text-center text-primary text-uppercase h3 mb-3">Enregistrement du patient</p>
 
          <hr>
@@ -29,15 +29,15 @@ require_once '../controllers/controller-addPatients.php';
          <?php
          // Mise en place d'une condition pour ne plus afficher le formulaire quand la patient a bien été enregistré
          if (!$addPatientInBase) { ?>
-
-            <p class="h4 text-center text-info"><?= $messages['addPatient'] ?? '' ?></p>
+            <!-- si le patient n'est pas enregistré nous indiquons l'utilisateur via un message -->
+            <p class="h5 text-center text-danger"><?= $messages['addPatient'] ?? '' ?></p>
 
          <?php
             // Mise en place d'un include pour la mise en place du formulaire
             include 'include/form-addPatients.php';
          } else { ?>
-
-            <p class="h4 text-center text-info"><?= $messages['addPatient'] ?? '' ?></p>
+            <!-- si le patient a bien été enregistré nous indiquons l'utilisateur via un message -->
+            <p class="h5 text-center text-info"><?= $messages['addPatient'] ?? '' ?></p>
             <div class="text-center mt-4">
                <a type="button" href="view-addPatients.php" class="btn btn-sm btn-primary" name="addPatientBtn">Ajouter un patient</a>
                <a type="button" href="view-listPatients.php" class="btn btn-sm btn-outline-primary" name="addPatientBtn">Liste des patients</a>
