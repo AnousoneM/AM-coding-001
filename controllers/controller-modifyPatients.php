@@ -25,7 +25,6 @@ if (!empty($_POST['modifyPatient'])) {
     $patientsObj = new Patients;
     // Nous allons récupérer les informations de notre patient nous permettant de pré-remplir le formulaire
     $detailsPatientArray = $patientsObj->getDetailsPatient($_POST['modifyPatient']);
-
     // Pour plus de sécurité, je stocl l'id du patient à modifier dans une variable de session
     $_SESSION['idPatientToUpdate'] = $detailsPatientArray['id'];
     var_dump($_SESSION['idPatientToUpdate']);

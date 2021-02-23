@@ -39,8 +39,8 @@ require_once '../controllers/controller-addPatients.php';
             <!-- si le patient a bien été enregistré nous indiquons l'utilisateur via un message -->
             <p class="h5 text-center text-info"><?= $messages['addPatient'] ?? '' ?></p>
             <div class="text-center mt-4">
-               <a type="button" href="view-addPatients.php" class="btn btn-sm btn-primary" name="addPatientBtn">Ajouter un patient</a>
-               <a type="button" href="view-listPatients.php" class="btn btn-sm btn-outline-primary" name="addPatientBtn">Liste des patients</a>
+               <a type="button" href="view-addPatients.php" class="btn btn-sm btn-primary">Ajouter un patient</a>
+               <a type="button" href="view-listPatients.php" class="btn btn-sm btn-outline-primary">Liste des patients</a>
             </div>
 
          <?php
@@ -52,7 +52,7 @@ require_once '../controllers/controller-addPatients.php';
 
    <div class="row justify-content-center">
       <!-- button retour accueil -->
-      <a href="../index.php" class="btn btn-outline-secondary mt-2 col-2" value="ok" name="addPatient">Accueil</a>
+      <a href="../index.php" class="btn btn-outline-secondary mt-2 col-2">Accueil</a>
    </div>
 
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>

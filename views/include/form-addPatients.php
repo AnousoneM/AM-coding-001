@@ -46,6 +46,7 @@
              </div>
 
              <button type="submit" class="btn btn-sm btn-primary" name="addPatientBtn">Enregistrer</button>
-             <a type="button" href="view-listPatients.php" class="btn btn-sm btn-outline-primary" name="addPatientBtn">Liste des patients</a>
+             <a type="button" href="/index.php" class="btn btn-sm btn-outline-danger">Annuler</a>
+             <a type="button" href="view-listPatients.php" class="btn btn-sm btn-outline-primary">Liste des patients</a>
 
          </form>
