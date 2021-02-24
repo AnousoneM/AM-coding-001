@@ -105,4 +105,21 @@ class Patients extends Database
             return false;
         }
     }
+
+    /**
+     * Méthode permettant d'obtenir la liste de tous les patients à insérer dans le select de notre prise de RDV
+     *
+     * @return array
+     */
+    public function getAllPatientsForSelect()
+    {
+        // Nous stockons ici notre requête pour permettre d'obtenir tous nos patients
+        $query = 'SELECT `id`, `lastname`, `firstname` FROM `patients` ORDER BY `lastname`';
+
+        // Nous executons notre requête à l'aide de la méthode query
+        $getAllPatientsQuery = $this->dataBase->query($query);
+
+        // j'effectue la methode fetchAll pour obtenir le resultat sous forme de tableau
+        return $getAllPatientsQuery->fetchAll();
+    }
 }
