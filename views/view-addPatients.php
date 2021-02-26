@@ -39,7 +39,7 @@ require_once '../controllers/controller-addPatients.php';
             <!-- si le patient a bien été enregistré nous indiquons l'utilisateur via un message -->
             <p class="h5 text-center text-info"><?= $messages['addPatient'] ?? '' ?></p>
             <div class="text-center mt-4">
-               <a type="button" href="view-addPatients.php" class="btn btn-sm btn-primary">Ajouter un patient</a>
+               <a type="button" href="view-addPatients.php" class="btn btn-sm btn-primary">Nouveau patient</a>
                <a type="button" href="view-listPatients.php" class="btn btn-sm btn-outline-primary">Liste des patients</a>
             </div>
 

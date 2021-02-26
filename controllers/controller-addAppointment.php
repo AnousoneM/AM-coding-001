@@ -10,13 +10,22 @@ $closeHour = 20;
 // fermeture exceptionnelle
 $specialHour = 12;
 
+
+// mise en place d'une variable permettant de gérer l'affichage du form
+$addAppointmentInBase = false;
+
+// mise en place d'un tableau d'erreurs
 $errors = [];
 
-var_dump($_POST);
+// mise en place d'un tableau de messages
+$messages = [];
 
+// Nous allons recupérer tous les patients via notre méthode pour pouvoir générer les options de notre select
 $patientsObj = new Patients;
 $selectPatientsArray = $patientsObj->getAllPatientsForSelect();
 
+
+// Nous détectons le submit du bouton addAppointmentBtn
 if (isset($_POST['addAppointmentBtn'])) {
 
     // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -33,9 +42,10 @@ if (isset($_POST['addAppointmentBtn'])) {
         $appointmentsObj = new Appointments;
 
         if ($appointmentsObj->addAppointment($appointmentDetails)) {
-            var_dump('OK');
+            $addAppointmentInBase = true;
+            $messages['addAppointement'] = 'Rendez-vous enregistré';
         } else {
-            var_dump('KO');
+            $messages['addAppointement'] = 'Erreur de connexion lors de l\'enregistrement';
         }
     }
 }

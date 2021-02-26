@@ -34,7 +34,7 @@ require_once '../controllers/controller-addAppointment.php';
 
             <?php
                 // Mise en place d'un include pour la mise en place du formulaire
-                include 'include/form-addAppointments.php';
+                include 'include/details-appointment.php';
             } else { ?>
                 <!-- si le RDV a bien été enregistré nous indiquons l'utilisateur via un message -->
                 <p class="h5 text-center text-info"><?= $messages['addAppointement'] ?? '' ?></p>

@@ -1,5 +1,3 @@
-         <!-- Utilisation du novalidate pour tester les tests en back -->
-         <form novalidate action="" method="POST">
              <!-- Choix du patient -->
              <div class="text-left">
                  <label class="label" for="patientId">Veuillez choisir un patient</label>
@@ -49,5 +47,3 @@
              <button type="submit" class="btn btn-sm btn-primary" name="addAppointmentBtn">Enregistrer</button>
              <a type="button" href="../index.php" class="btn btn-sm btn-outline-danger">Annuler</a>
              <a type="button" href="view-listAppointments.php" class="btn btn-sm btn-outline-primary">Liste des rendez-vous</a>
-
-         </form>
