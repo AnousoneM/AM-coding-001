@@ -1,49 +1,53 @@
-             <!-- Choix du patient -->
+             
+             <!-- Date du RDV -->
              <div class="text-left">
-                 <label class="label" for="patientId">Veuillez choisir un patient</label>
-                 <span class="error"><?= $errors['patientId'] ?? '' ?></span>
+                 <label class="label" for="dateAppointment">Date</label>
              </div>
              <div class="input-group input-group-sm mb-3">
-                 <select class="form-select" name="patientId" id="patientId">
-                     <option selected disabled>Choix du patient</option>
-                     <?php
-                        foreach ($selectPatientsArray as $patient) { ?>
-                         <option value="<?= $patient['id'] ?>"><?= $patient['lastname'] . ' ' . $patient['firstname']?></option>
-                     <?php
-                        } ?>
-                 </select>
+                 <input id="dateAppointment" name="dateAppointment" type="text" class="form-control" value="<?= $detailsAppointmentArray['date'] ?? '' ?>" disabled>
              </div>
 
-             <!-- Date de RDV -->
+             <!-- Heure du RDV  -->
              <div class="text-left">
-                 <label class="label" for="dateAppointment">Date du rendez-vous</label>
-                 <span class="error"><?= $errors['dateAppointment'] ?? '' ?></span>
+                 <label class="label" for="hourAppointment">Heure</label>
              </div>
              <div class="input-group input-group-sm mb-3">
-                 <input id="dateAppointment" name="dateAppointment" type="date" class="form-control" required>
+                 <input id="hourAppointment" name="hourAppointment" type="textF" class="form-control" value="<?= $detailsAppointmentArray['hour'] ?? '' ?>" disabled>
              </div>
 
-             <!-- Heure de RDV  -->
+             <!-- Nom du patient -->
              <div class="text-left">
-                 <label class="label" for="hourAppointment">Veuillez-choisir une heure de rendez-vous</label>
-                 <span class="error"><?= $errors['hourAppointment'] ?? '' ?></span>
+                 <label class="label" for="patientId">Nom du patient</label>
              </div>
              <div class="input-group input-group-sm mb-3">
-                 <select class="form-select" name="hourAppointment" id="hourAppointment">
-                     <option selected disabled>Choix de l'heure</option>
-                     <?php
-                        for ($openHour; $openHour <= $closeHour; $openHour++) {
-                            // mis en place d'un continue pour ne pas prendre en compte l'heure de dejeuner
-                            if ($openHour == $specialHour) {
-                                continue;
-                            }
-                        ?>
-                         <option><?= $openHour . ':00' ?></option>
-                     <?php
-                        } ?>
-                 </select>
+                 <input id="patient" name="patient" type="text" class="form-control" value="<?= $detailsAppointmentArray['patient'] ?? '' ?>" disabled>
              </div>
 
-             <button type="submit" class="btn btn-sm btn-primary" name="addAppointmentBtn">Enregistrer</button>
-             <a type="button" href="../index.php" class="btn btn-sm btn-outline-danger">Annuler</a>
-             <a type="button" href="view-listAppointments.php" class="btn btn-sm btn-outline-primary">Liste des rendez-vous</a>
+             <!-- Date de naissance -->
+             <div class="text-left">
+                 <label class="label" for="patientId">Date de naissance</label>
+             </div>
+             <div class="input-group input-group-sm mb-3">
+                 <input id="patient" name="patient" type="text" class="form-control" value="<?= $detailsAppointmentArray['birthdate'] ?? '' ?>" disabled>
+             </div>
+
+             <!-- Adresse Mail -->
+             <div class="text-left">
+                 <label class="label" for="patientId">Adresse e-Mail</label>
+             </div>
+             <div class="input-group input-group-sm mb-3">
+                 <input id="patient" name="patient" type="text" class="form-control" value="<?= $detailsAppointmentArray['mail'] ?? '' ?>" disabled>
+             </div>
+
+             <!-- Num de teléphone -->
+             <div class="text-left">
+                 <label class="label" for="patientId">Numéro de téléphone</label>
+             </div>
+             <div class="input-group input-group-sm mb-3">
+                 <input id="patient" name="patient" type="text" class="form-control" value="<?= $detailsAppointmentArray['phone'] ?? '' ?>" disabled>
+             </div>
+
+             <form action="view-modifyAppointments.php" method="POST">
+                 <button type="submit" class="btn btn-sm btn-dark" name="modifyAppointment" value="<?= $detailsAppointmentArray['id'] ?>">Modifier le rendez-vous</button>
+                 <a type="button" href="view-listAppointments.php" class="btn btn-sm btn-outline-dark">Liste des rendez-vous</a>
+             </form>

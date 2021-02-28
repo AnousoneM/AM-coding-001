@@ -1,5 +1,5 @@
 <?php
-require_once '../controllers/controller-addAppointment.php';
+require_once '../controllers/controller-detailsAppointment.php';
 ?>
 
 <!DOCTYPE html>
@@ -22,27 +22,19 @@ require_once '../controllers/controller-addAppointment.php';
         <div class="container border border-secondary shadow mt-5 p-4 col-6">
 
             <div class="text-center text-primary"><i class="fas fa-calendar-check p-2 logo"></i></div>
-            <p class="text-center text-primary text-uppercase h3 mb-3">Enregistrement d'un rendez vous</p>
+            <p class="text-center text-primary text-uppercase h3 mb-3">Détails du rendez vous</p>
 
             <hr>
 
             <?php
             // Mise en place d'une condition pour ne plus afficher le formulaire quand le RDV a bien été enregistré
-            if (!$addAppointmentInBase) { ?>
-                <!-- si le RDV n'est pas enregistré nous indiquons l'utilisateur via un message -->
-                <p class="h5 text-center text-danger"><?= $messages['addAppointement'] ?? '' ?></p>
-
-            <?php
-                // Mise en place d'un include pour la mise en place du formulaire
+            if ($detailsAppointmentArray) {
                 include 'include/details-appointment.php';
             } else { ?>
-                <!-- si le RDV a bien été enregistré nous indiquons l'utilisateur via un message -->
-                <p class="h5 text-center text-info"><?= $messages['addAppointement'] ?? '' ?></p>
-                <div class="text-center mt-4">
-                    <a type="button" href="view-addAppointments.php" class="btn btn-sm btn-primary">Nouveau rendez-vous</a>
-                    <a type="button" href="view-listAppointments.php" class="btn btn-sm btn-outline-primary">Liste des rendez-vous</a>
+                <p class="h5 text-danger text-center mb-3"></i>Ce rendez-vous n'existe pas</p>
+                <div class="text-center">
+                    <a type="button" href="view-listAppointments.php" class="btn btn-sm btn-outline-secondary">Liste des rendez-vous</a>
                 </div>
-
             <?php
             } ?>
 
