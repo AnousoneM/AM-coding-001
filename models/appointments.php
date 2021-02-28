@@ -60,7 +60,7 @@ class Appointments extends Database
     public function getAppointmentDetails(string $appointmentId)
     {
         // mise en place de la requête
-        $query = 'SELECT `appointments`.`id`, `patients`.`mail`, `patients`.`phone`, `patients`.`birthdate`, DATE_FORMAT(`dateHour`, "%d/%m/%Y") as `date`, DATE_FORMAT(dateHour, "%H:%i") as `hour`, CONCAT(`lastname`," ",`firstname`) as `patient`
+        $query = 'SELECT `appointments`.`id`, `patients`.`mail`, `patients`.`phone`, DATE_FORMAT(`birthdate`, "%d/%m/%Y") as `birthdate`, DATE_FORMAT(`dateHour`, "%d/%m/%Y") as `date`, DATE_FORMAT(dateHour, "%H:%i") as `hour`, CONCAT(`lastname`," ",`firstname`) as `patient`
         FROM appointments
         INNER JOIN `patients` ON `appointments`.`idPatients` = `patients`.`id`
         WHERE `appointments`.`id`= :appointmentId
