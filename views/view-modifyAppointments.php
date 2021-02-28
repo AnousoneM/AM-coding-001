@@ -21,8 +21,8 @@ require_once '../controllers/controller-modifyPatients.php';
 
       <div class="container border border-secondary shadow mt-5 p-4 col-6">
 
-         <div class="text-center text-success"><i class="fas fa-user-edit p-2 logo"></i></div>
-         <p class="text-center text-success text-uppercase mb-3 h3">Modification des données</p>
+         <div class="text-center text-success"><i class="fas fa-edit p-2 logo"></i></div>
+         <p class="text-center text-success text-uppercase mb-3 h3">Modification du rendez-vous</p>
 
          <hr>
 
@@ -32,22 +32,22 @@ require_once '../controllers/controller-modifyPatients.php';
          // Nous allons afficher le formulaire : 
          //    si modifyPatient n'est pas vide = nous venons bien de la page detailPatient
          //    si le tableau d'erreurs n'est pas vide = le formulaire contient des erreurs
-         if (!empty($_POST['modifyPatient']) || !empty($errors)) { ?>
-            <p class="h5 text-center text-danger"><?= $messages['updatePatient'] ?? '' ?></p>
+         if (!empty($_POST['modifyAppointment']) || !empty($errors)) { ?>
+            <p class="h5 text-center text-danger"><?= $messages['updateAppointment'] ?? '' ?></p>
          <?php
-            include 'include/form-modifyPatients.php';
+            include 'include/form-modifyAppointments.php';
             // si la requête d'update passe, nous l'indiquons à l'utilisateur via un message
-         } else if ($updatePatientInBase) { ?>
+         } else if ($updateAppointmentInBase) { ?>
             <p class="h5 text-center text-info">Les modifications ont bien été prises en compte</p>
             <div class="text-center mt-4">
-               <a type="button" href="view-listPatients.php" class="btn btn-sm btn-outline-secondary">Liste des patients</a>
+               <a type="button" href="view-listAppointments.php" class="btn btn-sm btn-outline-secondary">Liste des rdv</a>
             </div>
          <?php
             // si aucune condition n'est remplie, cela nous indique que l'utilisateur a directement saisi l'URL, nous lui indiquons donc via un message
          } else { ?>
-            <p class="h5 text-center text-info">Veuillez selectionner un patient dans la liste</p>
+            <p class="h5 text-center text-info">Veuillez selectionner un rendez-vous dans la liste</p>
             <div class="text-center mt-4">
-               <a type="button" href="view-listPatients.php" class="btn btn-sm btn-outline-secondary">Liste des patients</a>
+               <a type="button" href="view-listAppointments.php" class="btn btn-sm btn-outline-secondary">Liste des rdv</a>
             </div>
          <?php
          } ?>

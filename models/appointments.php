@@ -29,7 +29,6 @@ class Appointments extends Database
         }
     }
 
-
     /**
      * Methode permettant d'obtenir tous les rendez vous
      *
@@ -50,7 +49,6 @@ class Appointments extends Database
         return $getAllAppointmentQuery->fetchAll();
     }
 
-
     /**
      * methode permettant d'obtenir tous les infos d'un rdv avec son id
      *
@@ -60,7 +58,7 @@ class Appointments extends Database
     public function getAppointmentDetails(string $appointmentId)
     {
         // mise en place de la requête
-        $query = 'SELECT `appointments`.`id`, `patients`.`mail`, `patients`.`phone`, DATE_FORMAT(`birthdate`, "%d/%m/%Y") as `birthdate`, DATE_FORMAT(`dateHour`, "%d/%m/%Y") as `date`, DATE_FORMAT(dateHour, "%H:%i") as `hour`, CONCAT(`lastname`," ",`firstname`) as `patient`
+        $query = 'SELECT `appointments`.`id`, DATE_FORMAT(`dateHour`, "%d/%m/%Y") as `date`, DATE_FORMAT(dateHour, "%H:%i") as `hour`, CONCAT(`lastname`," ",`firstname`) as `patient`, `patients`.`id` as `patientId`
         FROM appointments
         INNER JOIN `patients` ON `appointments`.`idPatients` = `patients`.`id`
         WHERE `appointments`.`id`= :appointmentId
@@ -79,9 +77,5 @@ class Appointments extends Database
             return false;
         }
     }
-
-
-
-
 
 }

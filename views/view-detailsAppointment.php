@@ -21,8 +21,8 @@ require_once '../controllers/controller-detailsAppointment.php';
 
         <div class="container border border-secondary shadow mt-5 p-4 col-6">
 
-            <div class="text-center text-primary"><i class="fas fa-calendar-check p-2 logo"></i></div>
-            <p class="text-center text-primary text-uppercase h3 mb-3">Détails du rendez vous</p>
+            <div class="text-center text-dark"><i class="fas fa-calendar-check p-2 logo"></i></div>
+            <p class="text-center text-dark text-uppercase h3 mb-3">Détails du rendez vous</p>
 
             <hr>
 

@@ -23,8 +23,8 @@ require_once 'controllers/controller-index.php';
             <a class="btn btn-outline-primary fw-bold shadow w-75 m-2" href="views/view-addPatients.php"><i class="fas fa-user-plus p-2"></i>AJOUTER UN PATIENT</a>
             <a class="btn btn-outline-info fw-bold shadow w-75 m-2" href="views/view-listPatients.php"><i class="far fa-address-book p-2"></i>LISTE DES PATIENTS</a>
             <p class="bg-light h2 border text-center p-2 mt-3">Agenda des rendez-vous</p>
-            <a class="btn btn-outline-dark fw-bold shadow w-75 m-2" href="views/view-addAppointments.php"><i class="far fa-calendar-check p-2"></i>AJOUTER RDV</a>
-            <a class="btn btn-outline-secondary fw-bold shadow w-75 m-2" href="views/view-listAppointments.php"><i class="fas fa-book-medical p-2"></i>AFFICHER RDV</a>
+            <a class="btn btn-outline-dark fw-bold shadow w-75 m-2" href="views/view-addAppointments.php"><i class="far fa-calendar-check p-2"></i>AJOUTER UN RDV</a>
+            <a class="btn btn-outline-secondary fw-bold shadow w-75 m-2" href="views/view-listAppointments.php"><i class="fas fa-book-medical p-2"></i>LISTE DES RDV</a>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
