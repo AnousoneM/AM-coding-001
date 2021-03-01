@@ -11,8 +11,6 @@ if (isset($_GET['idAppointment'])) {
 
     $detailsAppointmentArray = $appointmentsObj->getAppointmentDetails($_GET['idAppointment']);
 
-    var_dump($detailsAppointmentArray);
-
 } else {
 
     $detailsAppointmentArray = false;

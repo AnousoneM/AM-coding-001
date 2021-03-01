@@ -41,3 +41,19 @@
                  <button type="submit" class="btn btn-sm btn-dark" name="modifyPatient" value="<?= $detailsPatientArray['id'] ?>">Modifier</button>
                  <a type="button" href="view-listPatients.php" class="btn btn-sm btn-outline-dark">Liste des patients</a>
              </form>
+
+             <ul class="mt-3">
+                 <?php
+                    foreach ($appointmentsList as $appointment) { ?>
+                     <li>Date de rdv : <?= $appointment['date'] ?> Heure de rdv : <?= $appointment['hour'] ?>
+
+                         <form action="../views/view-detailsAppointment.php" method="GET">
+                             <button class="btn btn-sm btn-warning" name="idAppointment" value="<?= $appointment['appointmentId'] ?>" type="submit">+ détails</button>
+                         </form>
+
+
+
+                     </li>
+                 <?php
+                    } ?>
+             </ul>

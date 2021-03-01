@@ -10,7 +10,7 @@
                      <option selected disabled>Choix du patient</option>
                      <?php
                         foreach ($selectPatientsArray as $patient) { ?>
-                         <option value="<?= $patient['id'] ?>"><?= $patient['lastname'] . ' ' . $patient['firstname']?></option>
+                         <option value="<?= $patient['id'] ?>" <?= $patient['id'] == $appointmentDetailsArray['patientId']  ? 'selected' : '' ?>><?= $patient['lastname'] . ' ' . $patient['firstname']?></option>
                      <?php
                         } ?>
                  </select>
@@ -22,7 +22,7 @@
                  <span class="error"><?= $errors['dateAppointment'] ?? '' ?></span>
              </div>
              <div class="input-group input-group-sm mb-3">
-                 <input id="dateAppointment" name="dateAppointment" type="date" class="form-control" required>
+                 <input id="dateAppointment" name="dateAppointment" type="date" class="form-control" value="<?= $appointmentDetailsArray['date'] ?>" required>
              </div>
 
              <!-- Heure de RDV  -->
@@ -40,13 +40,13 @@
                                 continue;
                             }
                         ?>
-                         <option><?= $openHour . ':00' ?></option>
+                         <option <?= $openHour == $appointmentDetailsArray['hour'] ? 'selected' : '' ?>><?= $openHour . ':00' ?></option>
                      <?php
                         } ?>
                  </select>
              </div>
 
-             <button type="submit" class="btn btn-sm btn-success" name="addAppointmentBtn">Enregistrer</button>
+             <button type="submit" class="btn btn-sm btn-success" name="ModifyAppointmentBtn">Enregistrer</button>
              <a type="button" href="view-listAppointments.php" class="btn btn-sm btn-outline-danger">Annuler</a>
 
          </form>

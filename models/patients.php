@@ -122,4 +122,23 @@ class Patients extends Database
         // j'effectue la methode fetchAll pour obtenir le resultat sous forme de tableau
         return $getAllPatientsQuery->fetchAll();
     }
+
+    public function getPatientAppointments(string $idPatient)
+    {
+        $query = "SELECT appointments.id as appointmentId, DATE_FORMAT(dateHour, '%d/%m/%Y') as date, DATE_FORMAT(dateHour, '%H:%i') as hour
+        FROM appointments
+        INNER JOIN patients
+        ON appointments.idPatients = patients.id
+        WHERE idPatients = :idPatient";
+
+        $getPatientAppointmentsQuery = $this->dataBase->prepare($query);
+
+        $getPatientAppointmentsQuery->bindValue(':idPatient', $idPatient, PDO::PARAM_STR);
+
+        if ($getPatientAppointmentsQuery->execute()) {
+            return $getPatientAppointmentsQuery->fetchAll();
+        } else {
+            return false;
+        }
+    }
 }

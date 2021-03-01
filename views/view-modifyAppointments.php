@@ -1,5 +1,5 @@
 <?php
-require_once '../controllers/controller-modifyPatients.php';
+require_once '../controllers/controller-modifyAppointments.php';
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +26,7 @@ require_once '../controllers/controller-modifyPatients.php';
 
          <hr>
 
-         <p class="h4 text-center text-info"><?= $messages['addPatient'] ?? '' ?></p>
+         <p class="h4 text-center text-info"><?= $messages['updateAppointment'] ?? '' ?></p>
 
          <?php
          // Nous allons afficher le formulaire : 
@@ -37,7 +37,7 @@ require_once '../controllers/controller-modifyPatients.php';
          <?php
             include 'include/form-modifyAppointments.php';
             // si la requête d'update passe, nous l'indiquons à l'utilisateur via un message
-         } else if ($updateAppointmentInBase) { ?>
+         } else if ($modifyAppointmentInBase) { ?>
             <p class="h5 text-center text-info">Les modifications ont bien été prises en compte</p>
             <div class="text-center mt-4">
                <a type="button" href="view-listAppointments.php" class="btn btn-sm btn-outline-secondary">Liste des rdv</a>

@@ -58,7 +58,7 @@ class Appointments extends Database
     public function getAppointmentDetails(string $appointmentId)
     {
         // mise en place de la requête
-        $query = 'SELECT `appointments`.`id`, DATE_FORMAT(`dateHour`, "%d/%m/%Y") as `date`, DATE_FORMAT(dateHour, "%H:%i") as `hour`, CONCAT(`lastname`," ",`firstname`) as `patient`, `patients`.`id` as `patientId`
+        $query = 'SELECT `appointments`.`id`, DATE_FORMAT(`dateHour`, "%Y-%m-%d") as `date`, DATE_FORMAT(dateHour, "%H:%i") as `hour`, CONCAT(`lastname`," ",`firstname`) as `patient`, `patients`.`id` as `patientId`
         FROM appointments
         INNER JOIN `patients` ON `appointments`.`idPatients` = `patients`.`id`
         WHERE `appointments`.`id`= :appointmentId
@@ -71,8 +71,30 @@ class Appointments extends Database
         $getAppointmentDetailsQuery->bindValue(':appointmentId', $appointmentId, PDO::PARAM_STR);
 
         // Je teste sur la requête s'execute, si oui je recupère un tableau de données
-        if ($getAppointmentDetailsQuery->execute()){
+        if ($getAppointmentDetailsQuery->execute()) {
             return $getAppointmentDetailsQuery->fetch();
+        } else {
+            return false;
+        }
+    }
+
+    public function updateAppointment(array $appointmentDetails)
+    {
+
+        // mise en place de notre requête
+        $query = 'UPDATE `appointments` SET
+        `dateHour` = :dateHour,
+        `idPatients` = :idPatients
+        WHERE `id` = :id';
+
+        $updateAppointmentQuery = $this->dataBase->prepare($query);
+
+        $updateAppointmentQuery->bindValue(':dateHour', $appointmentDetails['dateHour'], PDO::PARAM_STR);
+        $updateAppointmentQuery->bindValue(':idPatients', $appointmentDetails['patientId'], PDO::PARAM_STR);
+        $updateAppointmentQuery->bindValue(':id', $appointmentDetails['idAppointmentToUpdate'], PDO::PARAM_STR);
+
+        if ($updateAppointmentQuery->execute()) {
+            return true;
         } else {
             return false;
         }
