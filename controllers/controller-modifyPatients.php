@@ -29,6 +29,10 @@ if (!empty($_POST['modifyPatient'])) {
 
 if (isset($_POST['updatePatientBtn'])) {
 
+    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    // PENSER A FAIRE DES TESTS SUR LES INPUTS RECUPERES
+    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
     // check input lastname
     if (isset($_POST['lastname'])) {
 

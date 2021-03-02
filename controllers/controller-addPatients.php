@@ -18,6 +18,10 @@ $messages = [];
 
 if (isset($_POST['addPatientBtn'])) {
 
+    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    // PENSER A FAIRE DES TESTS SUR LES INPUTS RECUPERES
+    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
     // check input lastname
     if (isset($_POST['lastname'])) {
 

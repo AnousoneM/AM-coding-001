@@ -76,7 +76,12 @@ class Patients extends Database
         }
     }
 
-
+    /**
+     * Methode permettant de mettre à jour un patient
+     * 
+     * @param array contenant les infos du patient
+     * @return boolean permettant de savoir si la requête s'est bien déroulée
+     */
     public function updatePatient(array $patientDetails)
     {
         // requete me permettant de modifier mon user
@@ -123,6 +128,13 @@ class Patients extends Database
         return $getAllPatientsQuery->fetchAll();
     }
 
+    /**
+     * Methode permettant d'obtenir tous les rdv d'un patient selon son id
+     * 
+     * @param string nous récupérons un id sous forme de string
+     * @return array tous les détails du rdv sous forme de tableau associatif
+     * 
+     */
     public function getPatientAppointments(string $idPatient)
     {
         $query = "SELECT appointments.id as appointmentId, DATE_FORMAT(dateHour, '%d/%m/%Y') as date, DATE_FORMAT(dateHour, '%H:%i') as hour

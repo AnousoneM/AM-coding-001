@@ -42,18 +42,14 @@
                  <a type="button" href="view-listPatients.php" class="btn btn-sm btn-outline-dark">Liste des patients</a>
              </form>
 
-             <ul class="mt-3">
-                 <?php
-                    foreach ($appointmentsList as $appointment) { ?>
-                     <li>Date de rdv : <?= $appointment['date'] ?> Heure de rdv : <?= $appointment['hour'] ?>
+             <form action="../views/view-detailsAppointment.php" method="GET">
+                 <div class="list-group mt-3">
+                     <?php
+                        foreach ($appointmentsList as $appointment) { ?>
 
-                         <form action="../views/view-detailsAppointment.php" method="GET">
-                             <button class="btn btn-sm btn-warning" name="idAppointment" value="<?= $appointment['appointmentId'] ?>" type="submit">+ détails</button>
-                         </form>
+                         <button type="submit" class="btn-sm list-group-item list-group-item-action" name="idAppointment" value="<?= $appointment['appointmentId'] ?>"><i class="fas fa-calendar-check pe-2"></i>Le <?= $appointment['date'] ?> à <?= $appointment['hour'] ?></button>
 
-
-
-                     </li>
-                 <?php
-                    } ?>
-             </ul>
+                     <?php
+                        } ?>
+                 </div>
+             </form>

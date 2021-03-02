@@ -8,11 +8,9 @@ $appointmentsObj = new Appointments;
 
 
 if (isset($_GET['idAppointment'])) {
-
+    // Nous recupérons tous les détails du rdv via son id
     $detailsAppointmentArray = $appointmentsObj->getAppointmentDetails($_GET['idAppointment']);
-
 } else {
 
     $detailsAppointmentArray = false;
-    
 }

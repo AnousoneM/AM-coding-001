@@ -55,7 +55,7 @@ if (isset($_POST['ModifyAppointmentBtn'])) {
 
         if ($appointmentsObj->updateAppointment($appointmentDetails)) {
             $modifyAppointmentInBase = true;
-            $messages['updateAppointement'] = 'Rendez-vous modifié';
+            $messages['updateAppointement'] = 'Le rendez-vous modifié a bien été modifié';
         } else {
             $messages['updateAppointement'] = 'Erreur de connexion lors de l\'enregistrement';
         }

@@ -78,6 +78,12 @@ class Appointments extends Database
         }
     }
 
+    /**
+     * Methode permettant de mettre à jour un RDV
+     * 
+     * @param string $appointmentId
+     * @return boolean permettant de savoir si l'update est ok.
+     */
     public function updateAppointment(array $appointmentDetails)
     {
 
@@ -99,5 +105,4 @@ class Appointments extends Database
             return false;
         }
     }
-
 }

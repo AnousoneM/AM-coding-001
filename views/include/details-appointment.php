@@ -11,7 +11,14 @@
                  <label class="label" for="dateAppointment">Date</label>
              </div>
              <div class="input-group input-group-sm mb-3">
-                 <input id="dateAppointment" name="dateAppointment" type="text" class="form-control" value="<?= $detailsAppointmentArray['date'] ?? '' ?>" disabled>
+                 <?php
+                    //  mise en place d'un format 01/01/1970 pour l'affichage de la date
+                    if (isset($detailsAppointmentArray['date'])) {
+                        $date = date_create($detailsAppointmentArray['date']);
+                        $dateFr = date_format($date, 'd/y/Y');
+                    }
+                    ?>
+                 <input id="dateAppointment" name="dateAppointment" type="text" class="form-control" value="<?= $dateFr ?? '' ?>" disabled>
              </div>
 
              <!-- Heure du RDV  -->
