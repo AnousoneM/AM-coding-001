@@ -11,10 +11,6 @@ $closeHour = 20;
 // fermeture exceptionnelle
 $specialHour = 12;
 
-
-// mise en place d'une variable permettant de gérer l'affichage du form
-$modifyAppointmentInBase = false;
-
 // mise en place d'un tableau d'erreurs
 $errors = [];
 
@@ -54,8 +50,11 @@ if (isset($_POST['ModifyAppointmentBtn'])) {
         $appointmentsObj = new Appointments;
 
         if ($appointmentsObj->updateAppointment($appointmentDetails)) {
-            $modifyAppointmentInBase = true;
-            $messages['updateAppointement'] = 'Le rendez-vous modifié a bien été modifié';
+            // création de l'url pour avoir les détails dans la vue détails
+            $detailUrl = 'view-detailsAppointment.php?idAppointment=' . $_SESSION['idAppointmentToUpdate'];
+            // Nous crééons une variable de session pour obtenir un message
+            $_SESSION['modifyAppointment'] = true;
+            header('Location: ' . $detailUrl);
         } else {
             $messages['updateAppointement'] = 'Erreur de connexion lors de l\'enregistrement';
         }

@@ -31,5 +31,5 @@
 
              <form action="view-modifyAppointments.php" method="POST">
                  <button type="submit" class="btn btn-sm btn-dark" name="modifyAppointment" value="<?= $detailsAppointmentArray['id'] ?>">Modifier le rendez-vous</button>
-                 <a type="button" href="view-listAppointments.php" class="btn btn-sm btn-outline-dark">Liste des rendez-vous</a>
+                 <a type="button" href="view-listAppointments.php" class="btn btn-sm btn-outline-dark">Retour</a>
              </form>

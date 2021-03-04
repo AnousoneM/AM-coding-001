@@ -36,13 +36,7 @@ require_once '../controllers/controller-modifyAppointments.php';
             <p class="h5 text-center text-danger"><?= $messages['updateAppointment'] ?? '' ?></p>
          <?php
             include 'include/form-modifyAppointments.php';
-            // si la requête d'update passe, nous l'indiquons à l'utilisateur via un message
-         } else if ($modifyAppointmentInBase) { ?>
-            <p class="h5 text-center text-info">Les modifications ont bien été prises en compte</p>
-            <div class="text-center mt-4">
-               <a type="button" href="view-listAppointments.php" class="btn btn-sm btn-outline-secondary">Liste des rdv</a>
-            </div>
-         <?php
+
             // si aucune condition n'est remplie, cela nous indique que l'utilisateur a directement saisi l'URL, nous lui indiquons donc via un message
          } else { ?>
             <p class="h5 text-center text-info">Veuillez selectionner un rendez-vous dans la liste</p>

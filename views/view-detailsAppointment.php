@@ -24,6 +24,16 @@ require_once '../controllers/controller-detailsAppointment.php';
             <div class="text-center text-dark"><i class="fas fa-calendar-check p-2 logo"></i></div>
             <p class="text-center text-dark text-uppercase h3 mb-3">Détails du rendez vous</p>
 
+            <?php
+            // mise en place d'un message pour indiquer à l'utilisateur que le rdv a bien été modifié
+            // nous utilisons un variable de session pour faire la condition
+            if (isset($_SESSION['modifyAppointment']) && $_SESSION['modifyAppointment'] === true) {
+                echo '<p class="h5 text-center text-info">Les modifications ont bien été prises en compte</p>';
+                // Nous passons la variable à false pour ne plus qu'il s'affiche dans modification
+                $_SESSION['modifyAppointment'] = false;
+            }
+            ?>
+
             <hr>
 
             <?php

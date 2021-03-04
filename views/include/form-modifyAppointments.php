@@ -47,6 +47,6 @@
              </div>
 
              <button type="submit" class="btn btn-sm btn-success" name="ModifyAppointmentBtn">Enregistrer</button>
-             <a type="button" href="view-listAppointments.php" class="btn btn-sm btn-outline-danger">Annuler</a>
+             <a type="button" href="view-detailsAppointment.php?idAppointment=<?= $_SESSION['idAppointmentToUpdate'] ?? '' ?>" class="btn btn-sm btn-outline-danger">Annuler</a>
 
          </form>
