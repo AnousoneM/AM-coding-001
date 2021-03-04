@@ -39,7 +39,7 @@
              </div>
              <form action="view-modifyPatients.php" method="POST">
                  <button type="submit" class="btn btn-sm btn-dark" name="modifyPatient" value="<?= $detailsPatientArray['id'] ?>">Modifier</button>
-                 <a type="button" href="view-listPatients.php" class="btn btn-sm btn-outline-dark">Liste des patients</a>
+                 <a type="button" href="view-listPatients.php" class="btn btn-sm btn-outline-dark">Retour</a>
              </form>
 
              <form action="../views/view-detailsAppointment.php" method="GET">

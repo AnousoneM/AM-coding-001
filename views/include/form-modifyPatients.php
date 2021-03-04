@@ -46,6 +46,6 @@
              </div>
 
              <button type="submit" class="btn btn-sm btn-success" name="updatePatientBtn">Enregistrer</button>
-             <a type="button" href="view-listPatients.php" class="btn btn-sm btn-outline-danger">Annuler</a>
+             <a type="button" href="view-detailsPatient.php?idPatient=<?= $_SESSION['idPatientToUpdate'] = $detailsPatientArray['id'] ?? '' ?>" class="btn btn-sm btn-outline-danger">Annuler</a>
 
          </form>
