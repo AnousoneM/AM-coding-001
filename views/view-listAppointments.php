@@ -19,7 +19,7 @@ require_once '../controllers/controller-listAppointments.php';
 
    <div class="row">
 
-      <div class="container border border-secondary shadow mt-5 p-4 col-6">
+      <div class="container bg-light border border-secondary shadow mt-5 p-4 col-4">
 
          <div class="text-center text-secondary"><i class="far fa-calendar-alt p-2 logo"></i></div>
          <p class="text-center text-secondary text-uppercase mb-3 h3">Liste des rendez-vous</p>
@@ -44,6 +44,7 @@ require_once '../controllers/controller-listAppointments.php';
                               <td class="align-middle"><?= $appointment['patient'] ?></td>
                               <td class="align-middle text-center">
                                  <button type="submit" class="btn btn-outline-dark btn-sm" name="idAppointment" value="<?= $appointment['id'] ?>">+ détails</button>
+                                 <!-- attention de bien respecter les balises data pour permettre de recupérer les valeurs en js -->
                                  <button type="button" class="btn btn-danger btn-sm deleteAppointment" data-bs-toggle="modal" data-bs-target="#deleteModal" data-del-id="<?= $appointment['id'] ?>" data-del-date="<?= $appointment['date'] ?>" data-del-hour="<?= $appointment['hour'] ?>" data-del-patient="<?= $appointment['patient'] ?>"><i class="far fa-trash-alt"></i></button>
                               </td>
                            </tr>
@@ -94,7 +95,7 @@ require_once '../controllers/controller-listAppointments.php';
 
          <div class="row justify-content-center">
             <!-- button retour accueil -->
-            <a href="../index.php" class="btn btn-outline-secondary mt-2 col-2">Accueil</a>
+            <a href="../index.php" class="btn btn-secondary mt-2 col-2"><i class="fas fa-home p-2"></i>Accueil</a>
          </div>
 
          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>

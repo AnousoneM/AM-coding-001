@@ -5,7 +5,7 @@ class Appointments extends Database
     /**
      * Methode permettant d'ajouter un rdv 
      *
-     * @param array $appointmentDetails
+     * @param array $appointmentDetails contenant les elements du rdv à ajouter
      * @return boolean en fonction de l'execution de la requête
      */
     public function addAppointment(array $appointmentDetails)
@@ -104,7 +104,13 @@ class Appointments extends Database
             return false;
         }
     }
-
+    
+    /**
+     * methode permettant d'effacer un rdv
+     *
+     * @param string $appointmentId
+     * @return boolean permettant de savoir si le delete est ok
+     */
     public function deleteAppointment(string $appointmentId)
     {
         // Mise en place de la requête
@@ -113,11 +119,6 @@ class Appointments extends Database
         $deleteAppointmentQuery = $this->dataBase->prepare($query);
 
         $deleteAppointmentQuery->bindValue(':id', $appointmentId, PDO::PARAM_STR);
-
-        $deleteAppointmentQuery->execute();
-
-
-
 
         if ($deleteAppointmentQuery->execute()) {
             return true;

@@ -19,7 +19,7 @@ require_once '../controllers/controller-detailsAppointment.php';
 
     <div class="row">
 
-        <div class="container border border-secondary shadow mt-5 p-4 col-6">
+        <div class="container bg-light border border-secondary shadow mt-5 p-4 col-4">
 
             <div class="text-center text-dark"><i class="fas fa-calendar-check p-2 logo"></i></div>
             <p class="text-center text-dark text-uppercase h3 mb-3">Détails du rendez vous</p>
@@ -54,7 +54,7 @@ require_once '../controllers/controller-detailsAppointment.php';
 
     <div class="row justify-content-center">
         <!-- button retour accueil -->
-        <a href="../index.php" class="btn btn-outline-secondary mt-2 col-2">Accueil</a>
+        <a href="../index.php" class="btn btn-secondary mt-2 col-2"><i class="fas fa-home p-2"></i>Accueil</a>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>

@@ -17,7 +17,7 @@ require_once 'controllers/controller-index.php';
 
 <body>
     <div class="row justify-content-center text-center my-5">
-        <div class="container border border-secondary p-4 col-6">
+        <div class="container bg-light border border-secondary p-4 col-4">
             <p class="h1 text-danger text-center">LH HOSPITAL</p>
             <p class="bg-light h2 border text-center p-2 mt-3">Patients</p>
             <a class="btn btn-outline-primary fw-bold shadow w-75 m-2" href="views/view-addPatients.php"><i class="fas fa-user-plus p-2"></i>AJOUTER UN PATIENT</a>

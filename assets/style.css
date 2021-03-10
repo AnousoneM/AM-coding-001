@@ -13,3 +13,8 @@ span.error {
 i.logo {
     font-size: 4rem;
 }
+
+body {
+    background-image: url('./img/backGround.jpg');
+    background-repeat: no-repeat;
+}
