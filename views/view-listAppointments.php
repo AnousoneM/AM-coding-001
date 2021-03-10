@@ -43,14 +43,45 @@ require_once '../controllers/controller-listAppointments.php';
                         <td class="align-middle"><?= $appointment['patient'] ?></td>
                         <td class="align-middle text-center">
                            <button type="submit" class="btn btn-outline-dark btn-sm" name="idAppointment" value="<?= $appointment['id'] ?>">+ détails</button>
-                           <button type="button" class="btn btn-danger btn-sm"><i class="far fa-trash-alt"></i></button>
+                           <button type="button" class="btn btn-danger btn-sm deleteAppointment" data-bs-toggle="modal" data-bs-target="#deleteModal" data-del-id="<?= $appointment['id'] ?>" data-del-date="<?= $appointment['date'] ?>" data-del-hour="<?= $appointment['hour'] ?>" data-del-patient="<?= $appointment['patient'] ?>"><i class="far fa-trash-alt"></i></button>
                         </td>
                      </tr>
                   <?php } ?>
 
                </tbody>
             </table>
+
+
+            
          </form>
+         <!-- ------------------------------------- -->
+         <!-- ICI NOTRE MODAL DE SUPPRESSION DE RDV -->
+         <!-- ------------------------------------- -->
+         <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModal" aria-hidden="true">
+            <div class="modal-dialog">
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <h5 class="modal-title" id="exampleModalLabel">Suppression d'un rendez-vous</h5>
+                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div id="modalBody" class="modal-body">
+                     <div><span class="fw-bold">Patient : </span><span id="patientDeleteModal"></span></div>
+                     <div><span class="fw-bold">Date : </span><span id="dateDeleteModal"></span></div>
+                     <div><span class="fw-bold">Heure : </span><span id="hourDeleteModal"></span></div>
+                  </div>
+                  <div class="modal-footer">
+                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                     <form action="" method="get">
+                        <button id="deleteBtnModal" name="deleteBtn" type="submit" class="btn btn-danger">Supprimer</button>
+                     </form>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- ------------------------------------- -->
+         <!-- ICI NOTRE MODAL DE SUPPRESSION DE RDV -->
+         <!-- ------------------------------------- -->
+
 
          <!-- Mise en place d'une ternaire pour permettre d'afficher un message si jamais le tableau est vide -->
          <?= count($allAppointmentsArray) == 0 ? '<p class="h6 text-center">Vous n\'avez pas de rendez-vous d\'enregistré<p>' : '' ?>
@@ -69,6 +100,26 @@ require_once '../controllers/controller-listAppointments.php';
    </div>
 
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+
+   <script>
+      // on définit la constante regroupant tous nos boutons 
+      const deleteButtons = document.querySelectorAll('.deleteAppointment');
+
+      // nous ajoutons un écouteur d'événement sur chaque bouton à l'aide du foreach
+      deleteButtons.forEach(element => {
+         element.addEventListener('click', function() {
+            // Nous allons recupérer les valeurs via les datas inclus dans chaque bouton
+            // Nous modifions la valeur des span à l'aide de innerHTML
+            patientDeleteModal.innerHTML = element.dataset.delPatient;
+            dateDeleteModal.innerHTML = element.dataset.delDate;
+            hourDeleteModal.innerHTML = element.dataset.delHour;
+            // Nous attribuons la valeur de l'id du rdv pour supprimer le rdv
+            deleteBtnModal.value = element.dataset.delId;
+
+         })
+      });
+   </script>
+
 </body>
 
 </html>
