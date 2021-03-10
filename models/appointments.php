@@ -86,7 +86,6 @@ class Appointments extends Database
      */
     public function updateAppointment(array $appointmentDetails)
     {
-
         // mise en place de notre requête
         $query = 'UPDATE `appointments` SET
         `dateHour` = :dateHour,
@@ -104,5 +103,27 @@ class Appointments extends Database
         } else {
             return false;
         }
+    }
+
+    public function deleteAppointment(string $appointmentId)
+    {
+        // Mise en place de la requête
+        $query = 'DELETE FROM `appointments` WHERE `id` = :id';
+
+        $deleteAppointmentQuery = $this->dataBase->prepare($query);
+
+        $deleteAppointmentQuery->bindValue(':id', $appointmentId, PDO::PARAM_STR);
+
+        $deleteAppointmentQuery->execute();
+
+
+
+
+        if ($deleteAppointmentQuery->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+
     }
 }
