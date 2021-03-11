@@ -5,5 +5,13 @@ require_once '../models/patients.php';
 
 // Creation d'un tableau contenant nos patients avec comme info : id, nom, prénom
 $patientsObj = new Patients;
+
+$message = [];
+
+
+
+
+
+
 $allPatientsArray = $patientsObj->getAllPatients();
 

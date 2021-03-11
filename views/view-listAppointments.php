@@ -57,7 +57,7 @@ require_once '../controllers/controller-listAppointments.php';
                <!-- ICI NOTRE MODAL DE SUPPRESSION DE RDV -->
                <!-- ------------------------------------- -->
                <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModal" aria-hidden="true">
-                  <div class="modal-dialog">
+                  <div class="modal-dialog modal-dialog-centered">
                      <div class="modal-content">
                         <div class="modal-header">
                            <h5 class="modal-title" id="exampleModalLabel">Suppression d'un rendez-vous</h5>

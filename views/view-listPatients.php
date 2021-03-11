@@ -43,7 +43,8 @@ require_once '../controllers/controller-listPatients.php';
                         <td class="align-middle"><?= $patient['firstname'] ?></td>
                         <td class="align-middle text-center">
                            <button type="submit" class="btn btn-outline-dark btn-sm" name="idPatient" value="<?= $patient['id'] ?>">+ infos</button>
-                           <button type="button" class="btn btn-danger btn-sm"><i class="far fa-trash-alt"></i></button>
+                           <!-- Mise en place d'un déclencheur de modal sur le bouton supprimer -->
+                           <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="far fa-trash-alt"></i></button>
                         </td>
                      </tr>
                   <?php } ?>
@@ -51,6 +52,31 @@ require_once '../controllers/controller-listPatients.php';
                </tbody>
             </table>
          </form>
+
+         <!-- ------------------------------------------------------------------------------------------ -->
+         <!-- mise en place d'un boucle pour générer mes modals correspondants au delete de mes patients -->
+         <!-- ------------------------------------------------------------------------------------------ -->
+         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                     ...
+                  </div>
+                  <div class="modal-footer">
+                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                     <button type="button" class="btn btn-primary">Save changes</button>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- ------------------------------------------------------------------------------------------ -->
+         <!-- mise en place d'un boucle pour générer mes modals correspondants au delete de mes patients -->
+         <!-- ------------------------------------------------------------------------------------------ -->
+
 
          <!-- Mise en place d'une ternaire pour permettre d'afficher un message si jamais le tableau est vide -->
          <?= count($allPatientsArray) == 0 ? '<p class="h6 text-center">Vous n\'avez pas de patients d\'enregistrés<p>' : '' ?>
