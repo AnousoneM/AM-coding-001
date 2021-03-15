@@ -50,6 +50,34 @@ class Patients extends Database
     }
 
     /**
+     * Méthode permettant d'obtenir la liste des patients selon un intervale
+     *
+     * @param string $start indique quelle rangées nous commencons
+     * @param string $limit indique combien de patients nous souhaitons afficher
+     * @return array
+     */
+    public function getSomePatients(string $start, string $limit)
+    {
+        // Nous stockons ici notre requête pour permettre d'obtenir tous nos patients
+        $query = '(SELECT `id`, `lastname`, `firstname` FROM `patients` LIMIT :limit OFFSET :start) ORDER BY `id`';
+
+        // Nous preparons notre requête à l'aide de la méthode prepare
+        $getSomePatientsQuery = $this->dataBase->prepare($query);
+
+        // Nous lions par la suite les valeurs à l'aide de bindValue
+        $getSomePatientsQuery->bindValue(':start', $start, PDO::PARAM_INT);
+        $getSomePatientsQuery->bindValue(':limit', $limit, PDO::PARAM_INT);
+
+        // Je test si ma requête s'execute 
+        if ($getSomePatientsQuery->execute()) {
+            // j'effectue la methode fetchAll pour obtenir le resultat sous forme de tableau
+            return $getSomePatientsQuery->fetchAll();
+        } else {
+            return false;
+        }
+    }
+
+    /**
      * Methode permettant d'obtenir les infos d'un client selon son ID
      *
      * @param string $idPatient

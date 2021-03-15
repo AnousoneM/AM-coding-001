@@ -81,6 +81,31 @@ require_once '../controllers/controller-listPatients.php';
          <!-- Mise en place d'une ternaire pour permettre d'afficher un message si jamais le tableau est vide -->
          <?= count($allPatientsArray) == 0 ? '<p class="h6 text-center">Vous n\'avez pas de patients d\'enregistrés<p>' : '' ?>
 
+
+         <!-- ------------------------------- -->
+         <!--  MODULE DE BOUTON DE NAVIGATION -->
+         <!-- ------------------------------- -->
+         <div class="text-center">
+
+            <?php if ($page > 1) { ?>
+               <a href="view-listPatients?page=<?= $page - 1 ?>" class="btn btn-outline-secondary btn-sm"><i class="fas fa-chevron-left"></i></a>
+            <?php }
+            for ($pageNumber = 1; $pageNumber <= $pagesMax; $pageNumber++) {
+            ?>
+               <a href="view-listPatients?page=<?= $pageNumber ?>" class="btn btn-outline-secondary btn-sm"><?= $pageNumber ?></a>
+            <?php }
+            if ($page < $pagesMax) {
+            ?>
+               <a href="view-listPatients?page=<?= $page + 1 ?>" class="btn btn-outline-secondary btn-sm"><i class="fas fa-chevron-right"></i></a>
+            <?php } ?>
+
+            <p class="mt-2">Page actuelle : <?= $page . ' / ' . $pagesMax ?></p>
+
+         </div>
+         <!-- ---------------------------------- -->
+         <!-- FIN DU MODULE BOUTON DE NAVIGATION -->
+         <!-- ---------------------------------- -->
+
          <div class="text-center mt-4">
             <a type="button" href="view-addPatients.php" class="btn btn-sm btn-outline-secondary">Ajouter un patient</a>
          </div>
