@@ -88,15 +88,15 @@ require_once '../controllers/controller-listPatients.php';
          <div class="text-center">
 
             <?php if ($page > 1) { ?>
-               <a href="view-listPatients?page=<?= $page - 1 ?>" class="btn btn-outline-secondary btn-sm"><i class="fas fa-chevron-left"></i></a>
+               <a href="view-listPatients.php?page=<?= $page - 1 ?>" class="btn btn-outline-secondary btn-sm"><i class="fas fa-chevron-left"></i></a>
             <?php }
             for ($pageNumber = 1; $pageNumber <= $pagesMax; $pageNumber++) {
             ?>
-               <a href="view-listPatients?page=<?= $pageNumber ?>" class="btn btn-outline-secondary btn-sm"><?= $pageNumber ?></a>
+               <a href="view-listPatients.php?page=<?= $pageNumber ?>" class="btn btn-outline-secondary btn-sm"><?= $pageNumber ?></a>
             <?php }
             if ($page < $pagesMax) {
             ?>
-               <a href="view-listPatients?page=<?= $page + 1 ?>" class="btn btn-outline-secondary btn-sm"><i class="fas fa-chevron-right"></i></a>
+               <a href="view-listPatients.php?page=<?= $page + 1 ?>" class="btn btn-outline-secondary btn-sm"><i class="fas fa-chevron-right"></i></a>
             <?php } ?>
 
             <p class="mt-2">Page actuelle : <?= $page . ' / ' . $pagesMax ?></p>
